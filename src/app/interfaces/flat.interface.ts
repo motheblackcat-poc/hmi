@@ -12,4 +12,5 @@ export interface IFlat {
   easeAmputee: boolean;
   easeCare: boolean;
   description: string;
+  url?: string;
 }
