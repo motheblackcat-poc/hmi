@@ -1,8 +1,7 @@
 export interface IFlat {
-  id: number;
-  adress: string;
-  x: number;
-  y: number;
+  address: string;
+  lat: number;
+  lng: number;
   easeWheelChair: boolean;
   easeBlind: boolean;
   easePartiallyBlind: boolean;
@@ -11,6 +10,9 @@ export interface IFlat {
   easeElderlyPeople: boolean;
   easeAmputee: boolean;
   easeCare: boolean;
+  easeDoctor: boolean;
+  easeMarket: boolean;
   description: string;
+  email: string;
   url?: string;
 }

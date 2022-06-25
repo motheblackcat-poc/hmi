@@ -1,11 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'leaflet-geosearch/dist/geosearch.css';
+@import "leaflet-geosearch/dist/geosearch.css";
 
-html,body {
+html,
+body {
   margin: 0;
   height: 100%;
 }
 
 #map {
   height: 100%;
+}
+
+#search {
+  position: fixed;
+  top: 50px;
+  left: 40%;
+  z-index: 999;
+  width: 100%;
+  width: 514px;
+  height: 48px;
+  background-color: white;
+  display: flex;
+
+  input {
+    border: 0;
+    border-radius: 10px;
+    width: 100%;
+    padding-left: 10px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    border: none;
+    border-radius: 50px;
+    background-color: aqua;
+    cursor: pointer;
+  }
+}
+
+ul {
+  position: fixed;
+  z-index: 999;
+  top: 50px;
+  left: 5%;
+  height: 80%;
+  padding: 20px;
+  margin: 0;
+  background-color: white;
+  border-radius: 10px;
+  list-style: none;
+
+  li {
+    padding: 20px 0;
+    border-bottom: 1px solid black;
+    cursor: pointer;
+
+    div {
+      padding: 0 10px 10px 10px;
+    }
+
+    span {
+      padding: 10px;
+    }
+  }
 }

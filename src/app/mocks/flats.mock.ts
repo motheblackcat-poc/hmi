@@ -2,10 +2,9 @@ import { IFlat } from '../interfaces/flat.interface';
 
 export const mockFlats: IFlat[] = [
   {
-    id: 0,
-    adress: '17 rue d\' Ormesson Epinay sur Seine',
-    x: 2.3079464,
-    y: 48.9610279,
+    address: '17 rue d\' Ormesson Epinay sur Seine',
+    lat: 2.3079464,
+    lng: 48.9610279,
     easeWheelChair: true,
     easeBlind: true,
     easePartiallyBlind: true,
@@ -14,13 +13,15 @@ export const mockFlats: IFlat[] = [
     easeElderlyPeople: false,
     easeAmputee: false,
     easeCare: false,
-    description: 'Rampe d\'accès au batiment, ascenseur 4 personnes 200Kg.'
+    easeDoctor: false,
+    easeMarket: false,
+    description: 'Rampe d\'accès au batiment, ascenseur 4 personnes 200Kg.',
+    email: 'aze@aze.fr'
   },
   {
-    id: 1,
-    adress: '20 Bd de Beaublanc Limoges',
-    x: 1.2417343,
-    y: 45.8451011,
+    address: '20 Bd de Beaublanc Limoges',
+    lat: 1.2417343,
+    lng: 45.8451011,
     easeWheelChair: false,
     easeBlind: false,
     easePartiallyBlind: false,
@@ -29,13 +30,15 @@ export const mockFlats: IFlat[] = [
     easeElderlyPeople: false,
     easeAmputee: false,
     easeCare: false,
-    description: 'Quartier calme avec de nombreux espace vert.'
+    easeDoctor: false,
+    easeMarket: false,
+    description: 'Quartier calme avec de nombreulat espace vert.',
+    email: 'aze@aze.fr'
   },
   {
-    id: 2,
-    adress: '293 rue garibaldi lyon',
-    x: 2.2824057,
-    y: 45.6859824,
+    address: '293 rue garibaldi lyon',
+    lat: 2.2824057,
+    lng: 45.6859824,
     easeWheelChair: false,
     easeBlind: false,
     easePartiallyBlind: false,
@@ -44,13 +47,15 @@ export const mockFlats: IFlat[] = [
     easeElderlyPeople: false,
     easeAmputee: false,
     easeCare: false,
-    description: 'RDC accès directe par double portes depuis le hall, sas glissant.'
+    easeDoctor: false,
+    easeMarket: false,
+    description: 'RDC accès directe par double portes depuis le hall, sas glissant.',
+    email: 'aze@aze.fr'
   },
   {
-    id: 3,
-    adress: '1 Place Saint-Pierre Le Mans',
-    x: 0.1969619,
-    y: 48.0076931,
+    address: '1 Place Saint-Pierre Le Mans',
+    lat: 0.1969619,
+    lng: 48.0076931,
     easeWheelChair: false,
     easeBlind: false,
     easePartiallyBlind: false,
@@ -59,13 +64,15 @@ export const mockFlats: IFlat[] = [
     easeElderlyPeople: false,
     easeAmputee: false,
     easeCare: false,
-    description: 'Apport domotique, douche orienté faible mobilité, présence médical proche.'
+    easeDoctor: false,
+    easeMarket: false,
+    description: 'Apport domotique, douche orienté faible mobilité, présence médical proche.',
+    email: 'aze@aze.fr'
   },
   {
-    id: 4,
-    adress: '44 Av. Chomedey de Maisonneuve Troyes',
-    x: 4.008928970922865,
-    y: 48.298625556618376,
+    address: '44 Av. Chomedey de Maisonneuve Troyes',
+    lat: 4.008928970922865,
+    lng: 48.298625556618376,
     easeWheelChair: false,
     easeBlind: false,
     easePartiallyBlind: false,
@@ -74,6 +81,9 @@ export const mockFlats: IFlat[] = [
     easeElderlyPeople: false,
     easeAmputee: false,
     easeCare: false,
-    description: 'Monte charge et accès dédier fautieuls de grande tailles / motorisés.'
+    easeDoctor: false,
+    easeMarket: false,
+    description: 'Monte charge et accès dédier fautieuls de grande tailles / motorisés.',
+    email: 'aze@aze.fr'
   }
 ];

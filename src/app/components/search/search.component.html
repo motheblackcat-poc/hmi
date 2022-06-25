@@ -1,1 +1,22 @@
+<div id="search">
+  <input #input
+         type="text"
+         placeholder="Chercher">
+  <button (click)="searchFlat(input.value)">Chercher</button>
+</div>
+<ul *ngIf="search">
+  <li *ngFor="let flat of flats$ | async">
+    <div>{{ flat.address }}</div>
+    <span>{{ flat.easeWheelChair }}</span>
+    <span>{{ flat.easeBlind }}</span>
+    <span>{{ flat.easePartiallyBlind }}</span>
+    <span>{{ flat.easeDeaf }}</span>
+    <span>{{ flat.easeMental }}</span>
+    <span>{{ flat.easeElderlyPeople }}</span>
+    <span>{{ flat.easeAmputee }}</span>
+    <span>{{ flat.easeCare }}</span>
+    <span>{{ flat.easeDoctor }}</span>
+    <span>{{ flat.easeMarket }}</span>
+  </li>
+</ul>
 <div id="map"></div>
