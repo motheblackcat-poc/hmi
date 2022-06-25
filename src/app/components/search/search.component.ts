@@ -24,11 +24,7 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  initMap(flats: IFlat[]) {
-    console.log(flats);
-
-    const popup = `<p>${flats[0].adress}</p><p>${flats[0].description}</p>`;
-
+  async initMap(flats: IFlat[]) {
     const map = L.map('map').setView([46.000, 2.00], 6);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -36,17 +32,11 @@ export class SearchComponent implements OnInit {
       attribution: '© OpenStreetMap'
     }).addTo(map);
 
-    const marker = L.marker([46.000, 2.00]).addTo(map);
-    marker.bindPopup(popup);
-
-    // const circle = L.circle([46.000, 2.00], {
-    //   color: 'blue',
-    //   fillColor: 'blue',
-    //   fillOpacity: 0.5,
-    //   radius: 100000
-    // }).addTo(map);
-
-    // map.on('click', (e: any) => console.log('clicked on', e));
+    flats.forEach((flat: IFlat) => {
+      const marker = L.marker([flat.y, flat.x]).addTo(map);
+      const popup = `<p>${flat.adress}</p><p>${flat.description}</p>`;
+      marker.bindPopup(popup);
+    })
   }
 
 }
