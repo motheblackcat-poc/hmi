@@ -17,6 +17,10 @@ export class FlatService {
   }
 
   postFlat(jsonBody: string) {
+<<<<<<< HEAD
     this.http.post<IFlat[]>(this.apiUrl, JSON.parse(jsonBody));
+=======
+    this.http.post<IFlat[]>(this.apiUrl, JSON.stringify(jsonBody));
+>>>>>>> 9871c96bd52ffe1c934b52f323975df763d95075
   }
 }
