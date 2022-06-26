@@ -1,6 +1,10 @@
+
+
+import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import { FlatService } from 'src/app/services/flat.service';
+
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
-import { IFlat } from 'src/app/interfaces/flat.interface';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 declare let L: any;
 
@@ -11,17 +15,17 @@ declare let L: any;
 })
 export class PublishComponent implements OnInit {
 
-  constructor(private fb:FormBuilder) {  }
+  constructor(private fb: FormBuilder, private flatService: FlatService) { }
   form: FormGroup = new FormGroup({});
 
   ngOnInit(): void {
     this.form = this.fb.group(
       {
-        address: '17 rue d\' Ormesson Epinay sur Seine',
-        lat: 2.3079464,
-        lng: 48.9610279,
-        easeWheelChair: true,
-        easeBlind: true,
+        address: '',
+        lat: 0,
+        lng: 0,
+        easeWheelChair: false,
+        easeBlind: false,
         easePartiallyBlind: true,
         easeDeaf: false,
         easeMental: false,
@@ -30,8 +34,9 @@ export class PublishComponent implements OnInit {
         easeCare: false,
         easeDoctor: false,
         easeMarket: false,
-        description: 'Rampe d\'accès au batiment, ascenseur 4 personnes 200Kg.',
-        email: 'aze@aze.fr'
+        description: '',
+        email: '',
+        url: ''
       })
 
     this.initMap();
@@ -39,11 +44,19 @@ export class PublishComponent implements OnInit {
 
   initMap() {
     const map = L.map('map').setView([46.000, 2.00], 6);
-    
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© OpenStreetMap'
     }).addTo(map);
-  }  
+  }
 
+  async submitForm() {
+    const address = this.form.get('address')?.value;
+    const provider = new OpenStreetMapProvider();
+    const results: any = await provider.search({ query: address });
+    const updatedForm = { ...this.form.value, lat: address.x, lng: address.y };
+    console.log(updatedForm);
+    this.flatService.postFlat(updatedForm);
+  }
 }
