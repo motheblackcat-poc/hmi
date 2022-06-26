@@ -1,105 +1,169 @@
-<form action="http://localhost:5296/api/Flats" method="post">
-    <h4>Enregistrer un bien accessible</h4>
-    <div [formGroup]="form" class="d-flex form-group w-100">
-        <div class="d-block w-50 p-3">
-            <div class="d-flex flex-column">                
-                <label for="address">Adresse du logement : </label>
-                <input control="address" id="address" required>
-            </div>
-            <div class="d-flex flex-column">                
-                <label for="email">Votre e-mail : </label>
-                <input control="email" id="email" required>
-            </div>
-            <div class="d-flex flex-column">                
-                <label for="url">L'URL de l'annonce : </label>
-                <input control="url" id="url">
-            </div>
-            <div class="d-flex flex-column">                
-                <label for="description">Description du bien : </label>
-                <textarea control="description" id="description" cols="30" rows="10" resive="false"></textarea>
-            </div>
-        </div>        
-        <div class="d-block">
-            <div>
-                <legend for="easeWheelChair">Accessible en fauteuil</legend>
-                <label for="easeWheelChair_true">Oui</label>
-                <input control="easeWheelChair" id="easeWheelChair_true" name="easeWheelChair" type="radio">
-                <label for="easeWheelChair_false">Non</label>
-                <input control="easeWheelChair" id="easeWheelChair_false" name="easeWheelChair" type="radio">
-            </div>
-            
-            <div>
-                <legend for="easeBlind">Accessible pour une personne aveugle</legend>
-                <label for="easeBlind_true">Oui</label>
-                <input control="easeBlind" id="easeBlind_true" name="easeBlind" type="radio">
-                <label for="easeBlind_false">Non</label>
-                <input control="easeBlind" id="easeBlind_false" name="easeBlind" type="radio">
-            </div>
-            <div>
-                <legend for="easePartiallyBlind">Accessible malvoyante</legend>
-                <label for="easePartiallyBlind_true">Oui</label>
-                <input control="easePartiallyBlind" id="easePartiallyBlind_true" name="easePartiallyBlind" type="radio">
-                <label for="easePartiallyBlind_false">Non</label>
-                <input control="easePartiallyBlind" id="easePartiallyBlind_false" name="easePartiallyBlind" type="radio">
-            </div>
-            <div>
-                <legend for="easeDeaf">Accessible pour une personne sourde / malentendante</legend>
-                <label for="easeDeaf_true">Oui</label>
-                <input control="easeDeaf" id="easeDeaf_true" name="easeDeaf" type="radio">
-                <label for="easeDeaf_false">Non</label>
-                <input control="easeDeaf" id="easeDeaf_false" name="easeDeaf" type="radio">
-            </div>
-            <div>
-                <legend for="easeMental">Accessible pour une personne avec une déficience mentale</legend>
-                <label for="easeMental_true">Oui</label>
-                <input control="easeMental" id="easeMental_true" name="easeMental" type="radio">
-                <label for="easeMental_false">Non</label>
-                <input control="easeMental" id="easeMental_false" name="easeMental" type="radio">
-            </div>
-            <div>
-                <legend for="easeElderlyPeople">Accessible pour une personne âgée</legend>
-                <label for="easeElderlyPeople_true">Oui</label>
-                <input control="easeElderlyPeople" id="easeElderlyPeople_true" name="easeElderlyPeople" type="radio">
-                <label for="easeElderlyPeople_false">Non</label>
-                <input control="easeElderlyPeople" id="easeElderlyPeople_false" name="easeElderlyPeople" type="radio">
-            </div>
-            <div>
-                <legend for="easeAmputee">Accessible pour une personne amputée</legend>
-                <label for="easeAmputee_true">Oui</label>
-                <input control="easeAmputee" id="easeAmputee_true" name="easeAmputee" type="radio">
-                <label for="easeAmputee_false">Non</label>
-                <input control="easeAmputee" id="easeAmputee_false" name="easeAmputee" type="radio">
-            </div>
-            <div>
-                <legend for="easeCare">Accessible pour une personne accompagnée</legend>
-                <label for="easeCare_true">Oui</label>
-                <input control="easeCare" id="easeCare_true" name="easeCare" type="radio">
-                <label for="easeCare_false">Non</label>
-                <input control="easeCare" id="easeCare_false" name="easeCare" type="radio">
-            </div>
-            <div>
-                <legend for="easeDoctor">Autre :</legend>
-                <div>                    
-                <legend for="easeDoctor">Docteur à proximité ?</legend>
-                <label for="easeDoctor_true">Oui</label>
-                    <input control="easeDoctor" id="easeDoctor_true" name="easeDoctor" type="radio">
-                    <label for="easeDoctor_false">Non</label>
-                    <input control="easeDoctor" id="easeDoctor_false" name="easeDoctor" type="radio">
-                </div>
-                <div>
-                <legend for="easeDoctor">Supermarché à proximité ?</legend>
-                <label for="easeMarket_true">Oui</label>
-                    <input control="easeMarket" id="easeMarket_true" name="easeMarket" type="radio">
-                    <label for="easeMarket_false">Non</label>
-                    <input control="easeMarket" id="easeMarket_false" name="easeMarket" type="radio">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div>
-        <input type="submit" value="Enregistrer" class="btn m-3 bg-primary text-white">
-    </div>
+<form>
+       <h4>Enregistrer un bien accessible</h4>
+       <div [formGroup]="form"
+            class="d-flex form-group w-100">
+              <div class="d-block w-50 p-3">
+                     <div class="d-flex flex-column">
+                            <label for="address">Adresse du logement : </label>
+                            <input formControlName="address"
+                                   type="text"
+                                   name="address">
+                     </div>
+                     <div class="d-flex flex-column">
+                            <label for="email">Votre e-mail : </label>
+                            <input formControlName="email"
+                                   type="text">
+                     </div>
+                     <div class="d-flex flex-column">
+                            <label for="url">L'URL de l'annonce : </label>
+                            <input formControlName="url"
+                                   type="text">
+                     </div>
+                     <div class="d-flex flex-column">
+                            <label for="description">Description du bien : </label>
+                            <textarea formControlName="description"
+                                      type="text">
+                            </textarea>
+                     </div>
+              </div>
+              <div class="d-block">
+                     <div>
+                            <label for="easeWheelChair">Accessible en fauteuil</label>
+                            <label for="easeWheelChair_true">Oui</label>
+                            <input formControlName="easeWheelChair"
+                                   id="easeWheelChair_true"
+                                   name="easeWheelChair"
+                                   type="radio">
+                            <label for="easeWheelChair_false">Non</label>
+                            <input formControlName="easeWheelChair"
+                                   id="easeWheelChair_false"
+                                   name="easeWheelChair"
+                                   type="radio">
+                     </div>
+
+                     <div>
+                            <label for="easeBlind">Accessible pour une personne aveugle</label>
+                            <label for="easeBlind_true">Oui</label>
+                            <input formControlName="easeBlind"
+                                   id="easeBlind_true"
+                                   name="easeBlind"
+                                   type="radio">
+                            <label for="easeBlind_false">Non</label>
+                            <input formControlName="easeBlind"
+                                   id="easeBlind_false"
+                                   name="easeBlind"
+                                   type="radio">
+                     </div>
+                     <div>
+                            <label for="easePartiallyBlind">Accessible malvoyante</label>
+                            <label for="easePartiallyBlind_true">Oui</label>
+                            <input formControlName="easePartiallyBlind"
+                                   id="easePartiallyBlind_true"
+                                   name="easePartiallyBlind"
+                                   type="radio">
+                            <label for="easePartiallyBlind_false">Non</label>
+                            <input formControlName="easePartiallyBlind"
+                                   id="easePartiallyBlind_false"
+                                   name="easePartiallyBlind"
+                                   type="radio">
+                     </div>
+                     <div>
+                            <label for="easeDeaf">Accessible pour une personne sourde / malentendante</label>
+                            <label for="easeDeaf_true">Oui</label>
+                            <input formControlName="easeDeaf"
+                                   id="easeDeaf_true"
+                                   name="easeDeaf"
+                                   type="radio">
+                            <label for="easeDeaf_false">Non</label>
+                            <input formControlName="easeDeaf"
+                                   id="easeDeaf_false"
+                                   name="easeDeaf"
+                                   type="radio">
+                     </div>
+                     <div>
+                            <label for="easeMental">Accessible pour une personne avec une déficience mentale</label>
+                            <label for="easeMental_true">Oui</label>
+                            <input formControlName="easeMental"
+                                   id="easeMental_true"
+                                   name="easeMental"
+                                   type="radio">
+                            <label for="easeMental_false">Non</label>
+                            <input formControlName="easeMental"
+                                   id="easeMental_false"
+                                   name="easeMental"
+                                   type="radio">
+                     </div>
+                     <div>
+                            <label for="easeElderlyPeople">Accessible pour une personne âgée</label>
+                            <label for="easeElderlyPeople_true">Oui</label>
+                            <input formControlName="easeElderlyPeople"
+                                   id="easeElderlyPeople_true"
+                                   name="easeElderlyPeople"
+                                   type="radio">
+                            <label for="easeElderlyPeople_false">Non</label>
+                            <input formControlName="easeElderlyPeople"
+                                   id="easeElderlyPeople_false"
+                                   name="easeElderlyPeople"
+                                   type="radio">
+                     </div>
+                     <div>
+                            <label for="easeAmputee">Accessible pour une personne amputée</label>
+                            <label for="easeAmputee_true">Oui</label>
+                            <input formControlName="easeAmputee"
+                                   id="easeAmputee_true"
+                                   name="easeAmputee"
+                                   type="radio">
+                            <label for="easeAmputee_false">Non</label>
+                            <input formControlName="easeAmputee"
+                                   id="easeAmputee_false"
+                                   name="easeAmputee"
+                                   type="radio">
+                     </div>
+                     <div>
+                            <label for="easeCare">Accessible pour une personne accompagnée</label>
+                            <label for="easeCare_true">Oui</label>
+                            <input formControlName="easeCare"
+                                   id="easeCare_true"
+                                   name="easeCare"
+                                   type="radio">
+                            <label for="easeCare_false">Non</label>
+                            <input formControlName="easeCare"
+                                   id="easeCare_false"
+                                   name="easeCare"
+                                   type="radio">
+                     </div>
+                     <div>
+                            <label for="easeDoctor">Autre :</label>
+                            <div>
+                                   <label for="easeDoctor">Docteur à proximité ?</label>
+                                   <label for="easeDoctor_true">Oui</label>
+                                   <input formControlName="easeDoctor"
+                                          id="easeDoctor_true"
+                                          name="easeDoctor"
+                                          type="radio">
+                                   <label for="easeDoctor_false">Non</label>
+                                   <input formControlName="easeDoctor"
+                                          id="easeDoctor_false"
+                                          name="easeDoctor"
+                                          type="radio">
+                            </div>
+                            <div>
+                                   <label for="easeDoctor">Supermarché à proximité ?</label>
+                                   <label for="easeMarket_true">Oui</label>
+                                   <input formControlName="easeMarket"
+                                          id="easeMarket_true"
+                                          name="easeMarket"
+                                          type="radio">
+                                   <label for="easeMarket_false">Non</label>
+                                   <input formControlName="easeMarket"
+                                          id="easeMarket_false"
+                                          name="easeMarket"
+                                          type="radio">
+                            </div>
+                     </div>
+              </div>
+       </div>
 </form>
-<p class="p-3">Les champs avec un * sont obligatoires</p>
+<button class="btn btn-primary"
+        (click)="submitForm()">Valider</button>
 <div id="map"></div>
-  
