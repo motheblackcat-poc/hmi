@@ -27,7 +27,8 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  initMap(flats: IFlat[]) {
+  initMap(flats?: IFlat[]) {
+    if(flats){
     const map = L.map('map').setView([46.000, 2.00], 6);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -35,13 +36,21 @@ export class SearchComponent implements OnInit {
       attribution: '© OpenStreetMap'
     }).addTo(map);
 
-    console.log(flats);
     flats.forEach((flat: IFlat) => {
       const marker = L.marker([flat.lat, flat.lng]).addTo(map);
       const popup = `<p>${flat.address}</p><p>${flat.description}`;
       marker.bindPopup(popup);
     });
 
+  }else{
+    
+    const map = L.map('map').setView([46.000, 2.00], 6);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+  }
   }
 
   async searchFlat(searchValue: string) {

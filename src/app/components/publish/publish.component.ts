@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
+import { IFlat } from 'src/app/interfaces/flat.interface';
 
 declare let L: any;
 
@@ -9,9 +11,29 @@ declare let L: any;
 })
 export class PublishComponent implements OnInit {
 
-  constructor() { }
+  constructor(private fb:FormBuilder) {  }
+  form: FormGroup = new FormGroup({});
 
   ngOnInit(): void {
+    this.form = this.fb.group(
+      {
+        address: '17 rue d\' Ormesson Epinay sur Seine',
+        lat: 2.3079464,
+        lng: 48.9610279,
+        easeWheelChair: true,
+        easeBlind: true,
+        easePartiallyBlind: true,
+        easeDeaf: false,
+        easeMental: false,
+        easeElderlyPeople: false,
+        easeAmputee: false,
+        easeCare: false,
+        easeDoctor: false,
+        easeMarket: false,
+        description: 'Rampe d\'accès au batiment, ascenseur 4 personnes 200Kg.',
+        email: 'aze@aze.fr'
+      })
+
     this.initMap();
   }
 
@@ -22,5 +44,6 @@ export class PublishComponent implements OnInit {
       maxZoom: 19,
       attribution: '© OpenStreetMap'
     }).addTo(map);
-  }
+  }  
+
 }
