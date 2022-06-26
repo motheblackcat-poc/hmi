@@ -26,7 +26,7 @@ export class PublishComponent implements OnInit {
         lng: 0,
         easeWheelChair: false,
         easeBlind: false,
-        easePartiallyBlind: true,
+        easePartiallyBlind: false,
         easeDeaf: false,
         easeMental: false,
         easeElderlyPeople: false,
