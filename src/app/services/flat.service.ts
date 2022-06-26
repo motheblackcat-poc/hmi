@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { RESPONSES } from '../enums/responses.enum';
 import { IFlat } from '../interfaces/flat.interface';
 import { mockFlats } from '../mocks/flats.mock';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +14,13 @@ import { mockFlats } from '../mocks/flats.mock';
 export class FlatService {
   constructor(private http: HttpClient) { }
 
-  getFlats(): BehaviorSubject<IFlat[]> {
-    return new BehaviorSubject<IFlat[]>(mockFlats);
+  getFlats(): Observable<IFlat[]> {
+    return this.http.get<IFlat[]>("http://localhost:5296/api/Flats/liste");
   }
 
-  postFlat(): Observable<string> {
-    // const provider = new OpenStreetMapProvider();
-    // const results: any = await provider.search({ query: '17 rue d\' Ormesson 93800 Epinay sur Seine' });
-    // console.log(results[0].lat, results[0].lng);
+  postFlat(jsonBody: JSON): Observable<string> {
+    //const jsonBody = JSON.parse(jsonBody);
+    //this.http.post<IFlat[]>("http://localhost:5296/api/Flats", jsonBody);
     return of(RESPONSES.SUCCESS);
   }
 }
